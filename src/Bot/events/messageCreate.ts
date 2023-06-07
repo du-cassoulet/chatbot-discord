@@ -46,7 +46,9 @@ export default new Event(
 
 		for (let i = 0; i < history.length; i++) {
 			const slice = history.slice(0, i + 1);
-			const context = slice.map((m) => prepareContent(client, m));
+			const context = slice
+				.filter((m) => m.author.id !== client.user.id)
+				.map((m) => prepareContent(client, m));
 
 			brain.train(context, cleanContent);
 		}

@@ -47,7 +47,9 @@ exports.default = new Event_1.default(discord_js_1.default.Events.MessageCreate,
     const history = yield fetchConversation(message, MEMORY);
     for (let i = 0; i < history.length; i++) {
         const slice = history.slice(0, i + 1);
-        const context = slice.map((m) => prepareContent(client, m));
+        const context = slice
+            .filter((m) => m.author.id !== client.user.id)
+            .map((m) => prepareContent(client, m));
         brain.train(context, cleanContent);
     }
     if (((_b = (_a = history[0]) === null || _a === void 0 ? void 0 : _a.author) === null || _b === void 0 ? void 0 : _b.id) === client.user.id ||
