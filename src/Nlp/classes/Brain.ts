@@ -24,7 +24,7 @@ export default class Brain {
 	private path: string;
 	private nlu: Nlu;
 
-	constructor(_path: string = path.join(__dirname, "../../brain.json")) {
+	constructor(_path: string = path.join(__dirname, "../brain.json")) {
 		this.path = _path;
 		this.nlu = new Nlu();
 

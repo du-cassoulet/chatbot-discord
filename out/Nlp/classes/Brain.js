@@ -13,7 +13,7 @@ const tokenize_1 = __importDefault(require("../functions/tokenize"));
 const jaroWinkler_1 = __importDefault(require("../functions/jaroWinkler"));
 const words = JSON.parse(fs_1.default.readFileSync("./data/words.json", "utf8"));
 class Brain {
-    constructor(_path = path_1.default.join(__dirname, "../../brain.json")) {
+    constructor(_path = path_1.default.join(__dirname, "../brain.json")) {
         this.path = _path;
         this.nlu = new Nlu_1.default();
         if (!fs_1.default.existsSync(this.path)) {
